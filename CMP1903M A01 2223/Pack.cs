@@ -18,16 +18,21 @@ namespace CMP1903M_A01_2223
         public static bool shuffleCardPack(int typeOfShuffle)
         {
             //Shuffles the pack based on the type of shuffle
+            return true;
 
         }
         public static Card deal()
         {
             //Deals one card
+            return new Card();
 
         }
         public static List<Card> dealCard(int amount)
         {
             //Deals the number of cards specified by 'amount'
+            List<Card> items = new List<Card>();
+            items.Add(new Card());
+            return items;
         }
     }
 }

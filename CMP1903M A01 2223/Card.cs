@@ -17,7 +17,7 @@ namespace CMP1903M_A01_2223
     {
         //Base for the Card class.
         //Value: numbers 1 - 13
-        //Suit: numbers 1 - 4
+        //Suit: numbers 1 - 4 using enum here
         //The 'set' methods for these properties could have some validation
         private SuitType suitValue;
         private int cardValue;

@@ -9,7 +9,7 @@ The requirements that the client has specified are:
     - [x] `public static bool shuffleCardPack(int typeOfShuffle)`
     - [ ] `public static Card dealCard()`
     - [ ] `public static List<Card> dealCard(int amount)`
-- [ ] The `typeOfShuffle` should be 1: Fisher-Yates Shuffle  2: Riffle Shuffle  3: No Shuffle
+- [x] The `typeOfShuffle` should be 1: Fisher-Yates Shuffle  2: Riffle Shuffle  3: No Shuffle
 
 ### Testing
 - [ ] Create a `class Testing`

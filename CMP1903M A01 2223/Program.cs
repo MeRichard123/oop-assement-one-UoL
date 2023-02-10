@@ -15,6 +15,16 @@ namespace CMP1903M_A01_2223
             card.Suit = SuitType.Clubs;
             Console.WriteLine(card);
 
+            Pack pack = new Pack();
+            pack.displayPack();
+
+            for (int i = 0; i < 5; i++)
+            {
+                Pack.shuffleCardPack(Pack.ShuffleType.RiffleShuffle);
+            }
+            Console.WriteLine("\n");
+            pack.displayPack();
+
             // hold program idk why lol
             Console.ReadLine();
         }

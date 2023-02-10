@@ -6,7 +6,7 @@ The requirements that the client has specified are:
 - [ ] It needs to be used by their other card games.
 - [x] The pack of cards should be initialised and created in the Pack constructor.
 - [ ] The methods should have the following signatures (to fit in with their other software):
-    - [ ] `public static bool shuffleCardPack(int typeOfShuffle)`
+    - [x] `public static bool shuffleCardPack(int typeOfShuffle)`
     - [ ] `public static Card dealCard()`
     - [ ] `public static List<Card> dealCard(int amount)`
 - [ ] The `typeOfShuffle` should be 1: Fisher-Yates Shuffle  2: Riffle Shuffle  3: No Shuffle

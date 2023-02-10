@@ -4,7 +4,7 @@ Your software development company has been approached by a potential client to d
 The requirements that the client has specified are:
 - [ ] It should only be one pack of cards.
 - [ ] It needs to be used by their other card games.
-- [ ] The pack of cards should be initialised and created in the Pack constructor.
+- [x] The pack of cards should be initialised and created in the Pack constructor.
 - [ ] The methods should have the following signatures (to fit in with their other software):
     - [ ] `public static bool shuffleCardPack(int typeOfShuffle)`
     - [ ] `public static Card dealCard()`

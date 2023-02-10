@@ -15,10 +15,6 @@ namespace CMP1903M_A01_2223
     }
     class Card
     {
-        //Base for the Card class.
-        //Value: numbers 1 - 13
-        //Suit: numbers 1 - 4 using enum here
-        //The 'set' methods for these properties could have some validation
         private SuitType suitValue;
         private int cardValue;
 
@@ -31,16 +27,22 @@ namespace CMP1903M_A01_2223
 
             set
             {
-                if (value <= 13 && value >= 1)
-                {
+                if (value <= 13 && value >= 1) {
                     cardValue = value;
                 }
-                else
-                {
-                    throw new ArgumentException("Value invalid");
+                else if (value > 13) { 
+                    Console.WriteLine($"Cannot use Value {value} it is too big.");
                 }
+                else if (value < 1) {
+                    Console.WriteLine($"Cannot use Value {value} it is too small.");
+                }
+                else {
+                    Console.WriteLine("You value is simply wrong.");
+                }
+
             }
         }
+
         public SuitType Suit {
             get
             {

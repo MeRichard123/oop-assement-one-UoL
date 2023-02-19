@@ -9,8 +9,6 @@ namespace Testings
     public class Testing
     {
 
-        //Utils utils = new Utils();
-
         [TestMethod]
         public void TestRiffleShuffle()
         {

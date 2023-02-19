@@ -2,6 +2,7 @@
 
 namespace CMP1903M_A01_2223
 {
+    // store the suit types of the card
     public enum SuitType
     {
         Clubs = 1,
@@ -10,6 +11,7 @@ namespace CMP1903M_A01_2223
         Spades = 4,
     }
 
+    // store the different faces.
     public enum CardFaces
     {
         Ace = 1,
@@ -32,12 +34,14 @@ namespace CMP1903M_A01_2223
         private SuitType suitValue;
         private CardFaces cardValue;
 
+        // constructor for card 
         public Card(CardFaces value, SuitType suit)
         {
             suitValue = suit;
             cardValue = value;
         }
 
+        // validation method for creating a card ensuring it isn't too big. 
         private bool CheckValue(int value)
         {
             if (value <= 13 && value >= 1)
@@ -60,22 +64,26 @@ namespace CMP1903M_A01_2223
                 return false;
             }
         }
-
+        
+        // getters and setters for the value.
         public int Value
         {
             get
             {
+                // return numberic value of card
                 return (int)cardValue;
             }
 
             set
             {
+                // set the numberic value if valid 
                 if (CheckValue((int)value)) {
                     cardValue = (CardFaces)value;  
                 }
             }
         }
 
+        // get and set for suit
         public SuitType Suit {
             get
             {

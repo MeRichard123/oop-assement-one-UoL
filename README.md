@@ -18,3 +18,10 @@ The requirements that the client has specified are:
     - [x] call the `deal` method
     - [x] check what is returned.
 
+- Is the code properly documented/commented?
+- Does it need more work?/Is it great?
+- Where should it be better?
+- Does the code handle errors properly?
+- Does it need more work?/Is it great?
+- Where could it be better?
+- What suggestions do you have to improve the code? 

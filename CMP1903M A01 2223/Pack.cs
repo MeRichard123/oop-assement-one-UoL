@@ -1,38 +1,17 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
-using System.Security.Authentication;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CMP1903M_A01_2223
 {
-    class Pack
+    public class Pack
     {
         static private List<Card> pack;
        
-        private static Random random = new Random(0);
         private static int RandRange(int from, int to) {
+            Random random = new Random(0);
             return random.Next(from, to);
         }
-
-        public enum CardFaces
-        {
-            Ace = 1,
-            Two = 2,
-            Three = 3,
-            Four = 4,
-            Five = 5,
-            Six = 6,
-            Seven = 7,
-            Eight = 8,
-            Nine = 9,
-            Ten = 10,
-            Jack = 11,
-            Queen = 12,
-            King = 13,
-        } 
 
         public enum ShuffleType
         {
@@ -46,16 +25,20 @@ namespace CMP1903M_A01_2223
             //Initialise the card pack here
             pack = new List<Card>();
 
-            foreach (var suit in Enum.GetValues(typeof(SuitType)))
+            foreach (SuitType suit in Enum.GetValues(typeof(SuitType)))
             {
-                foreach (var face in Enum.GetValues(typeof(CardFaces)))
+                foreach (CardFaces face in Enum.GetValues(typeof(CardFaces)))
                 {
-                    Card card = new Card();
-                    card.Suit = (SuitType)suit;
-                    card.Value = (int)face;
+                    Card card = new Card(face, suit);
                     pack.Add(card);
                 }
             }
+        }
+
+
+        public static List<Card> getCardList()
+        {
+            return pack;
         }
 
         public void displayPack()
@@ -70,7 +53,7 @@ namespace CMP1903M_A01_2223
         {
             decimal half = pack.Count / 2;
             int parts = (int)Math.Floor(half);
-            List<Card> left = pack.Skip(0).Take(parts).ToList();
+            List<Card> left = pack.Take(parts).ToList();
             List<Card> right = pack.Skip(parts).Take(parts).ToList();
             List<Card> shuffled = new List<Card>();
 
@@ -84,12 +67,12 @@ namespace CMP1903M_A01_2223
 
         public static void FisherYatesShuffle()
         {
-            for (int i = 0; i < pack.Count - 1; i++)
+            for (int currentCardIndex = 0; currentCardIndex < pack.Count - 1; currentCardIndex++)
             {
-                int randomIndex = RandRange(i, pack.Count);
-                Card temp= pack[i];
-                pack[i] = pack[randomIndex];
-                pack[randomIndex] = temp;
+                int randomIndex = RandRange(currentCardIndex, pack.Count);
+                Card currentCard = pack[currentCardIndex];
+                pack[currentCardIndex] = pack[randomIndex];
+                pack[randomIndex] = currentCard;
             }
         }
 
@@ -109,19 +92,24 @@ namespace CMP1903M_A01_2223
                     FisherYatesShuffle();
                     break;
             }
+            // being honest I don't know why this isn't a void function
+            // but I going to assume that the template code has knowledge
+            // which I do not yet posess.  
             return true;
         }
         public static Card deal()
         {
-            //Deals one card
-            return new Card();
+            //Deals one card, since they are shuffed we can just take one from the top.
+            return pack[0];
         }
         public static List<Card> dealCard(int amount)
         {
             //Deals the number of cards specified by 'amount'
-            List<Card> items = new List<Card>();
-            items.Add(new Card());
-            return items;
+            // since they would have gone through a shuffle by this point we just take the
+            // first n cards. 
+            // this might need to be able to deal to mutliple players!!
+            // might need at skip by amount after the first deal
+            return pack.Take(amount).ToList();
         }
     }
 }

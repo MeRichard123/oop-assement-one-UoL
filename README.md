@@ -12,9 +12,9 @@ The requirements that the client has specified are:
 - [x] The `typeOfShuffle` should be 1: Fisher-Yates Shuffle  2: Riffle Shuffle  3: No Shuffle
 
 ### Testing
-- [ ] Create a `class Testing`
-    - [ ] Creates a Pack Object
-    - [ ] Class the `shuffleCardPack`
-    - [ ] call the `deal` method
-    - [ ] check what is returned.
+- [x] Create a `class Testing`
+    - [x] Creates a Pack Object
+    - [x] Class the `shuffleCardPack`
+    - [x] call the `deal` method
+    - [x] check what is returned.
 

@@ -14,12 +14,12 @@ namespace CMP1903M_A01_2223
             //pack.displayPack();
             Pack.shuffleCardPack(Pack.ShuffleType.FisherYatesShuffle);
             
-            //Pack.shuffleCardPack(Pack.ShuffleType.RiffleShuffle);
-            
             Console.WriteLine("Hello!\n");
             Console.WriteLine("Welcome to this set of Card Utilities");
-            //pack.displayPack();
-            // hold program idk why lol
+            pack.displayPack();
+
+
+            // hold program in order to be able to read the output. 
             Console.ReadLine();
         }
     }

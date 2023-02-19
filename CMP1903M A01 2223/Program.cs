@@ -10,21 +10,15 @@ namespace CMP1903M_A01_2223
     {
         static void Main(string[] args)
         {
-            Card card = new Card();
-            card.Value = 20;
-            card.Suit = SuitType.Clubs;
-            Console.WriteLine(card);
-
             Pack pack = new Pack();
-            pack.displayPack();
-
-            for (int i = 0; i < 5; i++)
-            {
-                Pack.shuffleCardPack(Pack.ShuffleType.RiffleShuffle);
-            }
-            Console.WriteLine("\n");
-            pack.displayPack();
-
+            //pack.displayPack();
+            Pack.shuffleCardPack(Pack.ShuffleType.FisherYatesShuffle);
+            
+            //Pack.shuffleCardPack(Pack.ShuffleType.RiffleShuffle);
+            
+            Console.WriteLine("Hello!\n");
+            Console.WriteLine("Welcome to this set of Card Utilities");
+            //pack.displayPack();
             // hold program idk why lol
             Console.ReadLine();
         }

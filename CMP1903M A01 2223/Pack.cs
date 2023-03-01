@@ -7,6 +7,7 @@ namespace CMP1903M_A01_2223
     public class Pack
     {
         static private List<Card> pack;
+        static private int cardsDealt = 0;
        
         // define a way to generate random numbers within a range using the Random class. 
         private static int RandRange(int from, int to) {
@@ -55,6 +56,14 @@ namespace CMP1903M_A01_2223
             foreach (Card card in pack)
             {
                 Console.Write($"{card.Value}-{card.Suit}, ");
+            }
+        }
+
+        public void displayPack(List<Card> cards)
+        {
+            foreach (Card card in cards)
+            {
+                Console.Write($"{card.Value}-{card.Suit}, "); 
             }
         }
 
@@ -118,15 +127,22 @@ namespace CMP1903M_A01_2223
             //Deals one card, since they are shuffed we can just take one from the top.
             return pack[0];
         }
+
+
         public static List<Card> dealCard(int amount)
         {
+            if (cardsDealt+amount >= pack.Count)
+            {
+                Console.Error.WriteLine("Pack doesn't contain enough cards to deal that many");
+                return new List<Card>();
+            }
+
+            var cards = pack.Skip(cardsDealt).Take(amount).ToList();
+            cardsDealt += amount;
             // Deals the number of cards specified by 'amount'
             // since they would have gone through a shuffle by this point we just take the
             // first n cards. 
-            // this might need to be able to deal to mutliple players!!
-            // maybe slice and update? but that would require a way to add cards back. 
-            // possibly skip n cards before next deal.
-            return pack.Take(amount).ToList();
+            return cards;
         }
     }
 }

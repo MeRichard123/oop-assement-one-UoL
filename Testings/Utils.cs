@@ -31,7 +31,7 @@ namespace Testings
                 "Clubs1/",
                 "Hearts12/",
                 "Clubs1/",
-                "Clubs1/Hearts1/Clubs2/Hearts2/Clubs3/Hearts3/Clubs4/Hearts4/Clubs5/Hearts5/",
+                "Clubs6/Hearts6/Clubs7/Hearts7/Clubs8/Hearts8/Clubs9/Hearts9/Clubs10/Hearts10/",
                 "Hearts12/Hearts13/Clubs2/Clubs3/Clubs4/Spades1/Clubs6/Clubs7/Clubs8/Spades2/",
                 "Clubs1/Clubs2/Clubs3/Clubs4/Clubs5/Clubs6/Clubs7/Clubs8/Clubs9/Clubs10/"
             };

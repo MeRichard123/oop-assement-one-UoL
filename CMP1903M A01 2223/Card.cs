@@ -41,6 +41,11 @@ namespace CMP1903M_A01_2223
             cardValue = value;
         }
 
+        public void display()
+        {
+            Console.Write($"{cardValue}-{suitValue}, ");
+        }
+
         // validation method for creating a card ensuring it isn't too big. 
         private bool CheckValue(int value)
         {

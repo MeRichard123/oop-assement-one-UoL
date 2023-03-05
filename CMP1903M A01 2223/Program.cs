@@ -1,9 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Reflection.Emit;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace CMP1903M_A01_2223
 {
@@ -13,7 +9,7 @@ namespace CMP1903M_A01_2223
         {
             Pack pack = new Pack();
             //pack.displayPack();
-            Pack.shuffleCardPack(Pack.ShuffleType.FisherYatesShuffle);
+            Pack.shuffleCardPack(Pack.ShuffleType.RandomRepeatedRiffle);
             
             Console.WriteLine("Hello!\n");
             Console.WriteLine("Welcome to this set of Card Utilities");
@@ -24,7 +20,7 @@ namespace CMP1903M_A01_2223
             List<Card> d = Pack.dealCard(10);
             pack.displayPack(d);
 
-            while (d.Count > 0)
+            while (d.Count >= 10)
             {
                 Console.WriteLine("\nDealing the next 10 cards\n");
                 d = Pack.dealCard(10);

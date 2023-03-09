@@ -31,6 +31,7 @@ namespace CMP1903M_A01_2223
 
     public class Card
     {
+        // private varaibles encapsulated
         private SuitType suitValue;
         private CardFaces cardValue;
 
@@ -41,9 +42,9 @@ namespace CMP1903M_A01_2223
             cardValue = value;
         }
 
-        public void display()
+        public override string ToString()
         {
-            Console.Write($"{cardValue}-{suitValue}, ");
+            return $"{Value}-{Suit}, ";
         }
 
         // validation method for creating a card ensuring it isn't too big. 
@@ -70,6 +71,7 @@ namespace CMP1903M_A01_2223
             }
         }
         
+        // ENCAPSULATION 
         // getters and setters for the value.
         public int Value
         {

@@ -8,10 +8,12 @@ namespace CMP1903M_A01_2223
     {
         static private List<Card> pack;
         static private int cardsDealt = 0;
-       
+        static private int cardsOffset = 0;
+
         // define a way to generate random numbers within a range using the Random class. 
-        private static int RandRange(int from, int to) {
-            Random random = new Random(0);
+        private static int RandRange(int from, int to)
+        {
+            Random random = new Random();
             return random.Next(from, to);
         }
 
@@ -21,6 +23,8 @@ namespace CMP1903M_A01_2223
             FisherYatesShuffle = 1,
             RiffleShuffle = 2,
             NoShuffle = 3,
+            FischerYatesPesudoRandom = 4,
+            RandomRepeatedRiffle = 5,
         }
 
         // contructor method for the Pack itself.
@@ -55,15 +59,16 @@ namespace CMP1903M_A01_2223
         {
             foreach (Card card in pack)
             {
-                Console.Write($"{card.Value}-{card.Suit}, ");
+                Console.Write(card.ToString());
             }
         }
 
+        // instance based version of the above
         public void displayPack(List<Card> cards)
         {
             foreach (Card card in cards)
             {
-                Console.Write($"{card.Value}-{card.Suit}, "); 
+                Console.Write(card.ToString());
             }
         }
 
@@ -88,12 +93,40 @@ namespace CMP1903M_A01_2223
             pack = shuffled;
         }
 
+        public static void RandomRiffleShuffle()
+        {
+            // since algorithmically riffle shuffle is pretty consistant
+            // the randomness comes from skipping cards when you shuffle in real life
+            // hence to randomise it a little we can shuffle it a radom amount of times. 
+            Random rn = new Random();
+            for (int i = 0; i < rn.Next(1, pack.Count); i++)
+            {
+                RiffleShuffle();
+            }
+        }
+
         public static void FisherYatesShuffle()
         {
             for (int currentCardIndex = 0; currentCardIndex < pack.Count - 1; currentCardIndex++)
             {
                 // for each card we pick a random card from the current card to the end 
                 int randomIndex = RandRange(currentCardIndex, pack.Count);
+                // swap the current card with the random card.
+                Card currentCard = pack[currentCardIndex];
+                pack[currentCardIndex] = pack[randomIndex];
+                pack[randomIndex] = currentCard;
+            }
+        }
+
+        // a pesudo random version of the the regular one because without a seed for the
+        // random class is it hard to test the output.
+        public static void FisherYatesShuffleConstant()
+        {
+            for (int currentCardIndex = 0; currentCardIndex < pack.Count - 1; currentCardIndex++)
+            {
+                // for each card we pick a random card from the current card to the end 
+                Random rnd = new Random(0);
+                int randomIndex = rnd.Next(currentCardIndex, pack.Count);
                 // swap the current card with the random card.
                 Card currentCard = pack[currentCardIndex];
                 pack[currentCardIndex] = pack[randomIndex];
@@ -116,22 +149,28 @@ namespace CMP1903M_A01_2223
                 case ShuffleType.FisherYatesShuffle:
                     FisherYatesShuffle();
                     break;
+
+                case ShuffleType.FischerYatesPesudoRandom:
+                    FisherYatesShuffleConstant();
+                    break;
+                case ShuffleType.RandomRepeatedRiffle:
+                    RandomRiffleShuffle();
+                    break;
             }
-            // being honest I don't know why this isn't a void function
-            // but I going to assume that the template code has knowledge
-            // which I do not yet posess.  
             return true;
         }
         public static Card deal()
         {
+            Card card = pack[cardsOffset];
+            cardsOffset += 1;
             //Deals one card, since they are shuffed we can just take one from the top.
-            return pack[0];
+            return card;
         }
 
 
         public static List<Card> dealCard(int amount)
         {
-            if (cardsDealt+amount >= pack.Count)
+            if (cardsDealt + amount >= pack.Count)
             {
                 Console.Error.WriteLine("Pack doesn't contain enough cards to deal that many");
                 return new List<Card>();

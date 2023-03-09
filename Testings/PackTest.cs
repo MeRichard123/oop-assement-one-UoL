@@ -25,7 +25,7 @@ namespace Testings
         public void TestFischerYatesShuffle()
         {
             Pack pack = new Pack();
-            Pack.shuffleCardPack(Pack.ShuffleType.FisherYatesShuffle);
+            Pack.shuffleCardPack(Pack.ShuffleType.FischerYatesPesudoRandom);
             List<Card> cards = Pack.getCardList();
             string output = Utils.FormatReadableCards(cards);
             string expected = Utils.GetExpectedOuput(2);
@@ -60,7 +60,7 @@ namespace Testings
         public void TestFischerYatesShuffleDeal()
         {
             Pack pack = new Pack();
-            Pack.shuffleCardPack(Pack.ShuffleType.FisherYatesShuffle);
+            Pack.shuffleCardPack(Pack.ShuffleType.FischerYatesPesudoRandom);
             Card card = Pack.deal();
             string output = Utils.FormatReadableCard(card);
             string expected = Utils.GetExpectedOuput(5);
@@ -94,7 +94,7 @@ namespace Testings
         public void TestFischerDealCard()
         {
             Pack pack = new Pack();
-            Pack.shuffleCardPack(Pack.ShuffleType.FisherYatesShuffle);
+            Pack.shuffleCardPack(Pack.ShuffleType.FischerYatesPesudoRandom);
             List<Card> cards = Pack.dealCard(10);
             string output = Utils.FormatReadableCards(cards);
             string expected = Utils.GetExpectedOuput(8);
@@ -113,4 +113,4 @@ namespace Testings
             Assert.AreEqual(output, expected);
         }
     }
- }
+}

@@ -9,10 +9,9 @@ namespace CMP1903M_A01_2223
         static private List<Card> pack;
         static private int cardsDealt = 0;
         static private int cardsOffset = 0;
-
+       
         // define a way to generate random numbers within a range using the Random class. 
-        private static int RandRange(int from, int to)
-        {
+        private static int RandRange(int from, int to) {
             Random random = new Random();
             return random.Next(from, to);
         }
@@ -104,6 +103,7 @@ namespace CMP1903M_A01_2223
                 RiffleShuffle();
             }
         }
+
 
         public static void FisherYatesShuffle()
         {

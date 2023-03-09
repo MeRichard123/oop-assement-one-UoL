@@ -31,6 +31,7 @@ namespace CMP1903M_A01_2223
 
     public class Card
     {
+        // private varaibles encapsulated
         private SuitType suitValue;
         private CardFaces cardValue;
 
@@ -70,6 +71,7 @@ namespace CMP1903M_A01_2223
             }
         }
         
+        // ENCAPSULATION 
         // getters and setters for the value.
         public int Value
         {

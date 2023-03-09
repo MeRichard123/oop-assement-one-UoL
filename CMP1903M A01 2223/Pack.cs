@@ -58,7 +58,7 @@ namespace CMP1903M_A01_2223
         {
             foreach (Card card in pack)
             {
-                Console.Write($"{card.Value}-{card.Suit}, ");
+                Console.Write(card.ToString());
             }
         }
 
@@ -67,7 +67,7 @@ namespace CMP1903M_A01_2223
         {
             foreach (Card card in cards)
             {
-                Console.Write($"{card.Value}-{card.Suit}, "); 
+                Console.Write(card.ToString());
             }
         }
 
@@ -103,6 +103,7 @@ namespace CMP1903M_A01_2223
                 RiffleShuffle();
             }
         }
+
 
         public static void FisherYatesShuffle()
         {
@@ -169,7 +170,7 @@ namespace CMP1903M_A01_2223
 
         public static List<Card> dealCard(int amount)
         {
-            if (cardsDealt+amount >= pack.Count)
+            if (cardsDealt + amount >= pack.Count)
             {
                 Console.Error.WriteLine("Pack doesn't contain enough cards to deal that many");
                 return new List<Card>();

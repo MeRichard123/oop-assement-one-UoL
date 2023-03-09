@@ -7,27 +7,8 @@ namespace CMP1903M_A01_2223
     {
         static void Main(string[] args)
         {
-            Pack pack = new Pack();
-            //pack.displayPack();
-            Pack.shuffleCardPack(Pack.ShuffleType.RandomRepeatedRiffle);
-            
-            Console.WriteLine("Hello!\n");
-            Console.WriteLine("Welcome to this set of Card Utilities");
-            pack.displayPack();
-
-            Console.WriteLine("\nDealing first 10 cards\n");
-
-            List<Card> d = Pack.dealCard(10);
-            pack.displayPack(d);
-
-            while (d.Count >= 10)
-            {
-                Console.WriteLine("\nDealing the next 10 cards\n");
-                d = Pack.dealCard(10);
-                pack.displayPack(d);
-            }
-
-
+            Game newGame = new Game();
+            newGame.Play();
             // hold program in order to be able to read the output. 
             Console.ReadLine();
         }

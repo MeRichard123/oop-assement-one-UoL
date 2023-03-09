@@ -35,14 +35,7 @@ namespace Testings
                 "Hearts12/Hearts13/Clubs2/Clubs3/Clubs4/Spades1/Clubs6/Clubs7/Clubs8/Spades2/",
                 "Clubs1/Clubs2/Clubs3/Clubs4/Clubs5/Clubs6/Clubs7/Clubs8/Clubs9/Clubs10/"
             };
-            /*try
-            {
-                string filePath = @"C:\Users\User\OneDrive - University of Lincoln\Object Oriented Programming\assessments\CMP1903M A01 2223\Testings\ExpectedOutputs.txt";
-                string[] fileContents = System.IO.File.ReadAllLines(filePath);
-            }catch
-            {
-                Console.WriteLine("no file found using array");
-            }*/
+
             return expectedOutputs[testNumber - 1];
         }
     }

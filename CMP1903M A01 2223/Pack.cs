@@ -55,7 +55,7 @@ namespace CMP1903M_A01_2223
         {
             foreach (Card card in pack)
             {
-                Console.Write($"{card.Value}-{card.Suit}, ");
+                Console.Write(card.ToString());
             }
         }
 
@@ -63,7 +63,7 @@ namespace CMP1903M_A01_2223
         {
             foreach (Card card in cards)
             {
-                Console.Write($"{card.Value}-{card.Suit}, "); 
+                Console.Write(card.ToString()); 
             }
         }
 
